@@ -50,3 +50,7 @@ WHERE subject = 'Medicine' AND yr < 1910
 SELECT * 
 FROM nobel
 WHERE winner = 'Peter Grünberg'
+
+SELECT * 
+FROM nobel
+WHERE winner LIKE '%Eugene O''neil%'
