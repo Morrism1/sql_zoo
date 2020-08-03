@@ -54,3 +54,7 @@ WHERE winner = 'Peter Grünberg'
 SELECT * 
 FROM nobel
 WHERE winner LIKE '%Eugene O''neil%'
+
+SELECT winner, yr, subject
+FROM nobel
+WHERE winner LIKE 'Sir%'
