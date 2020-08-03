@@ -36,3 +36,12 @@ WHERE length(name) = length(capital)
 SELECT name, capital
 FROM world
 WHERE (LEFT(name,1) = LEFT(capital,1)) AND NOT (name = capital)
+
+SELECT name
+   FROM world
+WHERE name LIKE '%u%' 
+  and name LIKE '%a%' 
+  and name LIKE '%o%' 
+  and name LIKE '%i%'
+  and name LIKE '%e%'
+  and name NOT LIKE '% %'
