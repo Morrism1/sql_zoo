@@ -32,3 +32,7 @@ where gdp > 1000000000000
 SELECT name, capital
 FROM world
 WHERE length(name) = length(capital)
+
+SELECT name, capital
+FROM world
+WHERE (LEFT(name,1) = LEFT(capital,1)) AND NOT (name = capital)
