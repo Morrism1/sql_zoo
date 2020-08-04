@@ -22,3 +22,7 @@ SELECT name from casting JOIN actor ON (actorid=id)
 WHERE movieid = (SELECT id
 FROM movie
 WHERE title = 'Alien')
+
+SELECT title FROM movie JOIN casting ON (id=movieid)
+WHERE actorid = (SELECT id FROM actor
+WHERE name = 'Harrison Ford')
