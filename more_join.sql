@@ -64,3 +64,12 @@ ON movie.id = casting.movieid AND casting.actorid = actor.id
 WHERE yr = 1978
 GROUP BY title
 ORDER BY actors DESC, title
+
+SELECT name
+FROM movie JOIN casting JOIN actor
+ON movie.id = casting.movieid AND casting.actorid = actor.id
+WHERE movie.id IN (SELECT movie.id
+FROM movie JOIN casting JOIN actor
+ON movie.id = casting.movieid AND casting.actorid = actor.id
+WHERE actor.name = 'Art Garfunkel')
+AND name<>'Art Garfunkel'
