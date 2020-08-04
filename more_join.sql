@@ -50,3 +50,10 @@ WHERE movieid IN
 FROM movie JOIN casting JOIN actor
 ON movie.id = casting.movieid AND casting.actorid = actor.id
 WHERE name = 'Julie Andrews' )
+
+SELECT name
+FROM casting JOIN actor
+ON actorid = actor.id
+WHERE ord=1
+GROUP BY name
+HAVING COUNT(movieid)>=15;
