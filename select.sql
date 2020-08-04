@@ -49,3 +49,12 @@ WHERE
 area >= ALL (SELECT area
 FROM world w2
 WHERE w1.continent = w2.continent);
+
+SELECT continent,
+  (SELECT name
+  FROM world w2
+  WHERE w1.continent = w2.continent
+  ORDER BY name 
+  LIMIT 1) AS 'name'
+FROM world AS w1
+GROUP BY continent
