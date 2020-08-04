@@ -18,3 +18,5 @@ SELECT name,COALESCE(NULL,mobile, '07986 444 2266') FROM teacher
 SELECT teacher.name, COALESCE(NULL,dept.name,'None')
  FROM teacher LEFT JOIN dept
            ON (teacher.dept=dept.id)
+
+SELECT COUNT(name),COUNT(mobile) FROM teacher
