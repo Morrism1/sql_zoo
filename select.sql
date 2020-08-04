@@ -65,3 +65,15 @@ WHERE
 (SELECT MAX(population)
 FROM world
 WHERE continent = w1.continent ) <= 25000000;
+
+SELECT
+  name, continent
+FROM world w1
+WHERE 
+population > ALL (
+SELECT (population * 3) as population
+FROM world w2
+WHERE w2.continent = w1.continent
+  AND
+  name <> w1.name
+)
