@@ -42,3 +42,10 @@ WHERE
 gdp > (SELECT MAX(gdp)
 FROM world
 WHERE continent = 'Europe');
+
+SELECT continent, name, area
+FROM world w1
+WHERE
+area >= ALL (SELECT area
+FROM world w2
+WHERE w1.continent = w2.continent);
