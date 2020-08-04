@@ -34,3 +34,10 @@ WHERE name = 'Harrison Ford' AND ord!=1)
 SELECT title, name FROM movie JOIN casting ON (id=movieid)
 JOIN actor ON (casting.actorid=actor.id)
 WHERE yr = '1962' AND ord = 1
+
+SELECT yr,COUNT(title) FROM
+  movie JOIN casting ON movie.id=movieid
+        JOIN actor   ON actorid=actor.id
+WHERE name='Rock Hudson'
+GROUP BY yr
+HAVING COUNT(title) > 2
