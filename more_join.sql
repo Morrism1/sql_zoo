@@ -57,3 +57,10 @@ ON actorid = actor.id
 WHERE ord=1
 GROUP BY name
 HAVING COUNT(movieid)>=15;
+
+SELECT title, COUNT(actorid) AS actors
+FROM movie JOIN casting JOIN actor
+ON movie.id = casting.movieid AND casting.actorid = actor.id
+WHERE yr = 1978
+GROUP BY title
+ORDER BY actors DESC, title
