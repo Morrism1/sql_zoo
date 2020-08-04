@@ -23,3 +23,11 @@ FROM route a JOIN route b ON
   JOIN stops stopa ON (a.stop=stopa.id)
   JOIN stops stopb ON (b.stop=stopb.id)
 WHERE stopa.name='Craiglockhart' AND stopb.name = 'London Road'
+
+SELECT r1.company, r1.num FROM route r1
+JOIN route r2 ON (r1.num = r2.num AND r1.company = r2.company)
+WHERE 
+r1.stop IN (115)
+AND
+r2.stop IN (137)
+GROUP BY r1.num,r1.company;
