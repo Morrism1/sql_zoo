@@ -24,3 +24,7 @@ WHERE coach = 'Fernando Santos'
 SELECT player
   FROM game JOIN goal ON (id=matchid)
 WHERE stadium LIKE 'National Stadium, Warsaw'
+
+SELECT DISTINCT player
+  FROM game JOIN goal ON matchid = id 
+    WHERE (team1='GER' AND teamid!='GER') OR (team2='GER' AND teamid!='GER')
