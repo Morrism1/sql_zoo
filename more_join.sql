@@ -30,3 +30,7 @@ WHERE name = 'Harrison Ford')
 SELECT title FROM movie JOIN casting ON (id=movieid)
 WHERE actorid = (SELECT id FROM actor
 WHERE name = 'Harrison Ford' AND ord!=1)
+
+SELECT title, name FROM movie JOIN casting ON (id=movieid)
+JOIN actor ON (casting.actorid=actor.id)
+WHERE yr = '1962' AND ord = 1
