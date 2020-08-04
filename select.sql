@@ -13,3 +13,12 @@ WHERE continent IN(
 SELECT DISTINCT continent FROM world
 WHERE name IN('Argentina','Australia'))
 ORDER BY name
+
+SELECT name, population FROM world
+WHERE population > (
+SELECT population FROM world
+WHERE name = 'Canada') AND 
+population < 
+(
+SELECT population FROM world
+WHERE name = 'Poland')
