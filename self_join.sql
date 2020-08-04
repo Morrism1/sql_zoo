@@ -49,3 +49,22 @@ SELECT s2.name, r1.company, r1.num
         JOIN stops s2 ON (r2.stop = s2.id) 
   WHERE 
     s1.name = 'Craiglockhart';
+
+SELECT DISTINCT start.num, start.company, transfer.name,finish.num, finish.company
+FROM
+ route AS start
+JOIN
+route AS to_transfer ON start.num = to_transfer.num AND start.company = to_transfer.company
+JOIN
+stops AS transfer ON to_transfer.stop = transfer.id
+JOIN
+route AS from_transfer ON transfer.id = from_transfer.stop
+JOIN
+route AS finish ON finish.num = from_transfer.num AND finish.company = from_transfer.company
+WHERE
+ start.stop IN(
+SELECT id FROM stops
+WHERE name = 'Craiglockhart') AND finish.stop IN (
+SELECT id FROM stops
+WHERE name = 'Lochend')
+ORDER BY start.num,transfer.name,4
