@@ -33,3 +33,7 @@ SELECT teamname, COUNT(player)
   FROM eteam JOIN goal ON id=teamid
   GROUP BY teamname
  ORDER BY teamname
+
+SELECT stadium, COUNT(player)
+  FROM game JOIN goal ON (id=matchid)
+  GROUP BY stadium
