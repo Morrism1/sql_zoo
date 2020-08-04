@@ -20,3 +20,8 @@ SELECT teacher.name, COALESCE(NULL,dept.name,'None')
            ON (teacher.dept=dept.id)
 
 SELECT COUNT(name),COUNT(mobile) FROM teacher
+
+SELECT dept.name,COUNT(teacher.name)
+ FROM teacher RIGHT JOIN dept
+           ON (teacher.dept=dept.id)
+GROUP BY dept.name
