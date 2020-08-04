@@ -1,0 +1,1 @@
+SELECT COUNT(id) AS Stops FROM stops
