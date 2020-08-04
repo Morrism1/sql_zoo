@@ -58,3 +58,10 @@ SELECT continent,
   LIMIT 1) AS 'name'
 FROM world AS w1
 GROUP BY continent
+
+SELECT name, continent, population
+FROM world w1
+WHERE 
+(SELECT MAX(population)
+FROM world
+WHERE continent = w1.continent ) <= 25000000;
