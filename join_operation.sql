@@ -47,3 +47,11 @@ SELECT matchid, mdate, COUNT(player)
   FROM game JOIN goal ON matchid = id 
  WHERE (team1 = 'GER' OR team2 = 'GER') AND teamid = 'GER'
 GROUP BY matchid,mdate;
+
+SELECT mdate,
+  team1,
+  SUM(CASE WHEN teamid=team1 THEN 1 ELSE 0 END) score1,
+  team2,
+  SUM(CASE WHEN teamid=team2 THEN 1 ELSE 0 END) score2
+  FROM game left JOIN goal ON matchid = id group by mdate, matchid, 
+         team1,team2
